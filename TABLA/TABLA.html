@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIBRERÍA DEL ALMA</title>
+    <link rel="stylesheet" href="TABLA.css">
+</head>
+<body>
+<header>
+    <div class="color-logo">
+        <div class="container-logo">
+           <img src="../imagenes-tp final/logo librería del alma.png" alt="LOGO">
+        </div>
+    </div>
+
+    <div class="contenedor-menuNavegacion">
+        <img src="../imagenes-tp final/iconos/menu.png" alt="" class="menu">
+    <nav class="menu-navegacion">
+            <a href="../inicio/index.html">inicio</a>
+            <a href="../libros/Libros.html">LIBROS</a>
+    </nav>
+
+
+</header>
+<main class="main">
+    <button  class="btn"   type="button" onclick="mostrarSeccionListado()">Listado de producto</button>
+    <button  class="btn"   type="button" onclick="mostrarSeccionCrear()">Nuevo producto</button>
+
+    <div id="aviso-carga">
+        <p>Cargando datos...</p>
+    </div>
+
+    <div id="lista" style="display: none">
+        <h1 class="textoh1">Lista de registros</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>IDCOD</th>
+                    <th>Título</th>
+                    <th>Precio AR$</th>
+                    <th>Precio U$S</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpo-tabla"></tbody>
+        </table>
+    </div>
+
+    <div id="nuevo-producto" style="display: none">
+        <h2>Crear nuevo registro</h2>
+        <form action="javascript:none">
+            <input type="text" id="new-titulo" placeholder="ingrese título">
+            <br>
+            <input type="number" id="new-precioPeso" placeholder="ingrese $">
+            <br>
+            <input type="number" id="new-precioDolar" placeholder="ingrese U$S">
+            <br>
+            <input type="date" id="new-fecha" placeholder="ingrese fecha">
+            <br>
+            <button class="btn" type="button" onclick="mostrarSeccionListado()">Cancelar</button>
+            <button class="btn"  type="button" onclick="crearNuevoProducto()">Crear</button>
+        </form>
+    </div>
+
+    <div id="editar-producto" style="display: none">
+        <h2>Editar Registro</h2>
+        <form action="javascript:none;">
+            <input type="hidden" id="edit-id">
+            <br>
+            <input type="text" id="edit-titulo" placeholder="Ingrese título">
+            <br>
+            <input type="number" id="edit-precioPESO" placeholder="Ingrese $">
+            <br>
+            <input type="number" id="edit-precioDOLAR" placeholder="Ingrese U$S">
+            <br>
+            <input type="date" id="edit-fecha" placeholder="Ingrese fecha">
+            <br>
+            <button class="btn"  type="button" onclick="mostrarSeccionListado()">Cancelar</button>
+            <button class="btn" type="button" onclick="actualizarProducto()">Actualizar</button>
+        </form>
+    </div>
+</main>
+   
+<footer id="contacto">
+    <div class="contenedor footer-content">
+        <div class="categoria">
+            <p class="title-footer">categoría</p>
+           <ul>
+            <li> <a href="../inicio/index.html">inicio</a></li>
+            <li><a href="../libros/Libros.html">LIBROS</a></li>
+           </ul>
+        </div>
+    </div>               
+</footer>
+   
+    <script src="../js/menu.js"></script>
+    <script src="TABLA.js"></script>
+
+    <script>
+        onload = () => mostrarSeccionListado();
+    </script>
+</body>
+
+</html>
